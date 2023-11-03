@@ -202,13 +202,13 @@ module sonic-acl {
 						when "not(IP_TYPE) or boolean(IP_TYPE[.='ANY' or .='IP' or .='IPV4' or .='IPv4ANY' or .='ARP'])";
 						leaf ICMP_TYPE {
 							type uint8 {
-								range 1..44;
+								range 0..255;
 							}
 						}
 
 						leaf ICMP_CODE {
 							type uint8 {
-								range 1..16;
+								range 0..255;
 							}
 						}
 					}
@@ -216,15 +216,11 @@ module sonic-acl {
 					case icmp6 {
 						when "not(IP_TYPE) or boolean(IP_TYPE[.='ANY' or .='IP' or .='IPV6' or .='IPv6ANY'])";
 						leaf ICMPV6_TYPE {
-							type uint8 {
-								range 1..44;
-							}
+							type uint8;
 						}
 
 						leaf ICMPV6_CODE {
-							type uint8 {
-								range 1..16;
-							}
+							type uint8;
 						}
 					}
 				}
